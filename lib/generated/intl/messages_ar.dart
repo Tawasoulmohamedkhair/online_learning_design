@@ -42,13 +42,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "account": MessageLookupByLibrary.simpleMessage("الحساب"),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "alreadyhaveanaccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
+    "anunexpectederroroccurred": MessageLookupByLibrary.simpleMessage(
+      "!حدث خطأ غير متوقع،",
+    ),
     "applyFilter": MessageLookupByLibrary.simpleMessage("Apply Filter"),
     "balance": MessageLookupByLibrary.simpleMessage("الرصيد"),
     "bertPullman": MessageLookupByLibrary.simpleMessage("Bert Pullman"),
     "buyNow": MessageLookupByLibrary.simpleMessage("اشترِ الآن"),
     "bycreatinganaccountyouhavetoagreewithourthemcondication":
         MessageLookupByLibrary.simpleMessage(
-          "بإنشاء حساب، يجب أن توافق على الشروط والأحكام الخاصة بنا",
+          "بإنشاء حساب، يجب أن توافق على\nالشروط والأحكام الخاصة بنا",
         ),
     "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
     "checkyourinternetconnection": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +61,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "clear": MessageLookupByLibrary.simpleMessage("مسح"),
     "clockingin": MessageLookupByLibrary.simpleMessage("!تسجيل الحضور"),
     "coding": MessageLookupByLibrary.simpleMessage("البرمجة "),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور",
+    ),
     "congratulationskeepupthegoodwork": MessageLookupByLibrary.simpleMessage(
       "!تهانينا على إكمال الدرس الأول، استمر في العمل الجيد",
     ),
@@ -87,8 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "discovery": MessageLookupByLibrary.simpleMessage("الاكتشاف"),
     "done": MessageLookupByLibrary.simpleMessage("تم"),
-    "donthaveanaccountSignup": MessageLookupByLibrary.simpleMessage(
-      "لا تمتلك حساب؟ تسجيل حساب",
+    "donthaveanaccount": MessageLookupByLibrary.simpleMessage(
+      "لا تمتلك حساب؟ ",
     ),
     "donthaveanyproducts": MessageLookupByLibrary.simpleMessage(
       "!ليس لديك أي منتجات بعد",
@@ -101,12 +107,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "ادخل رقم هاتفك",
     ),
+    "enteravalidemailaddress": MessageLookupByLibrary.simpleMessage(
+      "ادخل عنوان بريد إلكتروني صالح",
+    ),
     "enteryourdetailsbelowfreesignup": MessageLookupByLibrary.simpleMessage(
       "أدخل تفاصيلك أدناه لإنشاء حساب مجاني",
     ),
     "favourite": MessageLookupByLibrary.simpleMessage("المفضلة"),
     "findCousre": MessageLookupByLibrary.simpleMessage("ابحث عن دورة"),
     "forgetpassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+    "forgotpasswordclicked": MessageLookupByLibrary.simpleMessage(
+      "Forgot password clicked!",
+    ),
     "freecourses": MessageLookupByLibrary.simpleMessage(
       "دورات مجانية للوصول إلى طريقتك للتعلم",
     ),
@@ -123,6 +135,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "learnedtoday": MessageLookupByLibrary.simpleMessage("تعلمت اليوم "),
     "learningPlan": MessageLookupByLibrary.simpleMessage("خطة التعلم"),
     "letsstartlearning": MessageLookupByLibrary.simpleMessage("لنبدأ التعلم"),
+    "loginsuccessful": MessageLookupByLibrary.simpleMessage(
+      "تم تسجيل الدخول بنجاح!",
+    ),
     "mathmatics": MessageLookupByLibrary.simpleMessage("الرياضيات"),
     "meetup": MessageLookupByLibrary.simpleMessage("لقاء"),
     "message": MessageLookupByLibrary.simpleMessage("الرسائل"),
@@ -157,13 +172,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "packagingDesign": MessageLookupByLibrary.simpleMessage("Packaging Design"),
     "painting": MessageLookupByLibrary.simpleMessage("الرسم"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwordsdonotmatch": MessageLookupByLibrary.simpleMessage(
+      "كلمات المرور لا تتطابق",
+    ),
     "payNow": MessageLookupByLibrary.simpleMessage("ادفع الآن"),
     "paymentPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور الدفع"),
     "pleaseenterthepaymentpassword": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة مرور الدفع من فضلك",
     ),
+    "pleaseenteryouremail": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال البريد الالكتروني",
+    ),
+    "pleaseenteryourpassword": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال كلمة المرور",
+    ),
     "poular": MessageLookupByLibrary.simpleMessage("Poular"),
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
+    "processingsignup": MessageLookupByLibrary.simpleMessage(
+      "معالجة التسجيل...",
+    ),
     "processoverview": MessageLookupByLibrary.simpleMessage(
       " نظرة عامة على العملية",
     ),
@@ -185,6 +212,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
     "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "sign_up": MessageLookupByLibrary.simpleMessage("التسجيل"),
+    "signupsuccessful": MessageLookupByLibrary.simpleMessage(
+      "تم التسجيل بنجاح!",
+    ),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "startlearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم"),
     "studyaccordingtothestudyplan": MessageLookupByLibrary.simpleMessage(

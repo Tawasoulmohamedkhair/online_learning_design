@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_learning_design/generated/l10n.dart';
 import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_bloc.dart';
-import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_event.dart';
 import 'package:online_learning_design/presentation/Language/data/language_model.dart';
 
 class LanguageScreen extends StatelessWidget {
@@ -12,7 +11,6 @@ class LanguageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LocalizationBloc, LocalizationState>(
       builder: (context, state) {
-        // Current selected language code
         var groupValue = state.locale.languageCode;
 
         return Scaffold(
@@ -36,7 +34,7 @@ class LanguageScreen extends StatelessWidget {
                   if (value != null) {
                     BlocProvider.of<LocalizationBloc>(
                       context,
-                    ).add(ChangeLocalization(item.locale, locale: item.locale));
+                    ).add(ChangeLocale(Locale(value)));
                     Navigator.of(context).pop();
                   }
                 },

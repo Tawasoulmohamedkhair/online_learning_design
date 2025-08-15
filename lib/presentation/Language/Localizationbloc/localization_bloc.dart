@@ -1,40 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_event.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:online_learning_design/generated/l10n.dart';
+
 part 'localization_state.dart';
 
 class LocalizationBloc extends Bloc<LocalizationEvent, LocalizationState> {
-  static const _localeKey = 'locale_language_code';
+  // Key for storing the locale in SharedPreferences
+  static const _localeKey = 'locale';
 
-  LocalizationBloc() : super(LocalizationState(const Locale('en'))) {
-    on<ChangeLocalization>(_onChangeLocalization);
-    on<LoadSavedLocalization>(_onLoadSavedLocalization);
-  }
-  Future<void> _onChangeLocalization(
-    ChangeLocalization event,
-    Emitter<LocalizationState> emit,
-  ) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_localeKey, event.newLocale.languageCode);
-
-    emit(LocalizationState(event.newLocale));
+  LocalizationBloc()
+    : super(LocalizationState(S.delegate.supportedLocales.first)) {
+    on<ChangeLocale>(_onChangeLocale);
+    _loadLocale();
   }
 
-  Future<void> _onLoadSavedLocalization(
-    LoadSavedLocalization event,
-    Emitter<LocalizationState> emit,
-  ) async {
+  // Asynchronously load the saved locale from SharedPreferences
+  Future<void> _loadLocale() async {
     final prefs = await SharedPreferences.getInstance();
-    final savedLanguageCode = prefs.getString(_localeKey);
-
-    Locale initialLocale;
-    if (savedLanguageCode != null) {
-      initialLocale = Locale(savedLanguageCode);
-    } else {
-      initialLocale = const Locale('en');
+    final String? languageCode = prefs.getString(_localeKey);
+    if (languageCode != null) {
+      add(ChangeLocale(Locale(languageCode)));
     }
-
-    emit(LocalizationState(initialLocale));
   }
+
+  Future<void> _onChangeLocale(
+    ChangeLocale event,
+    Emitter<LocalizationState> emit,
+  ) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_localeKey, event.locale.languageCode);
+    emit(LocalizationState(event.locale));
+  }
+}
+
+class ChangeLocale extends LocalizationEvent {
+  final Locale locale;
+  const ChangeLocale(this.locale);
+}
+
+abstract class LocalizationEvent {
+  const LocalizationEvent();
+}
+
+class LocalizationState {
+  final Locale locale;
+  const LocalizationState(this.locale);
 }

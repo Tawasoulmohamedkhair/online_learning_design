@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_learning_design/generated/l10n.dart';
 import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_bloc.dart';
-import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_event.dart';
 import 'package:online_learning_design/presentation/Account/components/image_account.dart';
 import 'package:online_learning_design/presentation/Account/components/list_tile_widget.dart';
 import 'package:online_learning_design/presentation/Language/language_screen.dart';
@@ -51,7 +50,7 @@ class AccountScreen extends StatelessWidget {
                       );
                       if (newLocale != null && newLocale is Locale) {
                         context.read<LocalizationBloc>().add(
-                          ChangeLocalization(newLocale, locale: newLocale),
+                          ChangeLocale(newLocale),
                         );
                       }
                     },

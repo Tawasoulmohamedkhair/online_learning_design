@@ -32,26 +32,21 @@ class _MainScreenState extends State<MainScreen> {
         shape: const CircleBorder(),
         onPressed: () {
           setState(() {
-            _currentindex = 2; // Index for the Search screen
+            _currentindex = 2;
           });
         },
 
-        // Set the desired background color for the button
         child: Stack(
           alignment: Alignment.center,
           children: [
-            SvgPicture.asset(
-              'assets/svg/Ellipse.svg', // Replace with your SVG path
-              width: 56, // Adjust to fit your FAB size
-              height: 56,
-            ),
+            SvgPicture.asset('assets/svg/Ellipse.svg', width: 56, height: 56),
             _buildSvgPicture('assets/svg/search.svg', 2),
           ],
-        ), // Use the custom SVG builder for the icon
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white, // Dark background for the bottom bar
+        color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

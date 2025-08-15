@@ -50,13 +50,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyhaveanaccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account？",
     ),
+    "anunexpectederroroccurred": MessageLookupByLibrary.simpleMessage(
+      "An unexpected error occurred,",
+    ),
     "applyFilter": MessageLookupByLibrary.simpleMessage("Apply Filter"),
     "balance": MessageLookupByLibrary.simpleMessage("Balance"),
     "bertPullman": MessageLookupByLibrary.simpleMessage("Bert Pullman"),
     "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
     "bycreatinganaccountyouhavetoagreewithourthemcondication":
         MessageLookupByLibrary.simpleMessage(
-          "By creating an account you have to agreewith our them & condication.",
+          "By creating an account you have to agree \nwith our them & condication.",
         ),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "checkyourinternetconnection": MessageLookupByLibrary.simpleMessage(
@@ -68,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "clear": MessageLookupByLibrary.simpleMessage("Clear"),
     "clockingin": MessageLookupByLibrary.simpleMessage("Clocking in!"),
     "coding": MessageLookupByLibrary.simpleMessage("Coding"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "congratulationskeepupthegoodwork": MessageLookupByLibrary.simpleMessage(
       "Congratulations on completing the first lesson, keep up the good work!",
     ),
@@ -97,8 +101,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "discovery": MessageLookupByLibrary.simpleMessage("Discovery"),
     "done": MessageLookupByLibrary.simpleMessage("Done"),
-    "donthaveanaccountSignup": MessageLookupByLibrary.simpleMessage(
-      "Don’t have an account? Sign up",
+    "donthaveanaccount": MessageLookupByLibrary.simpleMessage(
+      "Don’t have an account? ",
     ),
     "donthaveanyproducts": MessageLookupByLibrary.simpleMessage(
       "You dont have any products yet!",
@@ -111,16 +115,28 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "Enter Your Phone Number",
     ),
+    "enteravalidemailaddress": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email address",
+    ),
     "enteryourdetailsbelowfreesignup": MessageLookupByLibrary.simpleMessage(
       "Enter your details below & free sign up",
+    ),
+    "facebookloginclicked": MessageLookupByLibrary.simpleMessage(
+      "Facebook login clicked!",
     ),
     "favourite": MessageLookupByLibrary.simpleMessage("Favourite"),
     "findCousre": MessageLookupByLibrary.simpleMessage("Find Cousre"),
     "forgetpassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
+    "forgotpasswordclicked": MessageLookupByLibrary.simpleMessage(
+      "Forgot password clicked!",
+    ),
     "freecourses": MessageLookupByLibrary.simpleMessage(
       "Free courses for you to\n find your way to learning",
     ),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
+    "googleloginclicked": MessageLookupByLibrary.simpleMessage(
+      "Google login clicked!",
+    ),
     "help": MessageLookupByLibrary.simpleMessage("Help"),
     "hiKristin": MessageLookupByLibrary.simpleMessage("Hi, Kristin"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -134,6 +150,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "learningPlan": MessageLookupByLibrary.simpleMessage("Learning Plan"),
     "letsstartlearning": MessageLookupByLibrary.simpleMessage(
       "Let’s start learning",
+    ),
+    "loginsuccessful": MessageLookupByLibrary.simpleMessage(
+      "Login successful!",
     ),
     "mathmatics": MessageLookupByLibrary.simpleMessage("Mathmatics"),
     "meetup": MessageLookupByLibrary.simpleMessage("Meetup"),
@@ -167,13 +186,28 @@ class MessageLookup extends MessageLookupByLibrary {
     "packagingDesign": MessageLookupByLibrary.simpleMessage("Packaging Design"),
     "painting": MessageLookupByLibrary.simpleMessage("Painting"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordsdonotmatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
     "payNow": MessageLookupByLibrary.simpleMessage("Pay Now"),
     "paymentPassword": MessageLookupByLibrary.simpleMessage("Payment Password"),
     "pleaseenterthepaymentpassword": MessageLookupByLibrary.simpleMessage(
       "Please enter the payment password",
     ),
+    "pleaseenteryouremail": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email",
+    ),
+    "pleaseenteryourpassword": MessageLookupByLibrary.simpleMessage(
+      "Please enter your password",
+    ),
     "poular": MessageLookupByLibrary.simpleMessage("Poular"),
     "price": MessageLookupByLibrary.simpleMessage("Price"),
+    "processinglogin": MessageLookupByLibrary.simpleMessage(
+      "Processing Login...",
+    ),
+    "processingsignup": MessageLookupByLibrary.simpleMessage(
+      "Processing Sign Up...",
+    ),
     "processoverview": MessageLookupByLibrary.simpleMessage("processoverview"),
     "productDesign": MessageLookupByLibrary.simpleMessage("Product Design"),
     "productDesignv10": MessageLookupByLibrary.simpleMessage(
@@ -197,6 +231,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "share": MessageLookupByLibrary.simpleMessage("Share"),
     "sign_in": MessageLookupByLibrary.simpleMessage("Login"),
     "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "signupsuccessful": MessageLookupByLibrary.simpleMessage(
+      "Sign up successful!",
+    ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "startlearning": MessageLookupByLibrary.simpleMessage("Start learning"),
     "studyaccordingtothestudyplan": MessageLookupByLibrary.simpleMessage(
