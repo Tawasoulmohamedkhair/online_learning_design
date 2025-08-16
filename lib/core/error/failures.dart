@@ -1,4 +1,8 @@
-class Failure {
+class Failure {}
+
+class ServerFailure extends Failure {
   final String message;
-  Failure([this.message = 'An unexpected error occurred,']);
+  ServerFailure({this.message = 'Server Error'});
 }
+
+class NetworkFailure extends Failure {}

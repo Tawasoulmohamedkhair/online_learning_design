@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_learning_design/presentation/Account/account_screen.dart';
 import 'package:online_learning_design/presentation/Onboarding/components/onboarding_button.dart';
 import 'package:online_learning_design/presentation/Onboarding/components/onboarding_pages_view.dart';
 import 'package:online_learning_design/presentation/Onboarding/components/skip_button.dart';
 import 'package:online_learning_design/presentation/Onboarding/data/model/onboarding_model.dart';
 import 'package:online_learning_design/presentation/Onboarding/onboardingbloc/onboarding_bloc.dart';
 import 'package:online_learning_design/presentation/Onboarding/utils/onboarding_utils.dart';
-import 'package:online_learning_design/presentation/auth/login_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   final PageController _pageController = PageController();
@@ -24,7 +24,7 @@ class OnboardingScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is OnboardingCompletedState) {
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const LoginScreen()),
+              MaterialPageRoute(builder: (context) => const AccountScreen()),
             );
           }
         },

@@ -6,8 +6,8 @@ import 'package:online_learning_design/core/components/custom_elevated_button.da
 import 'package:online_learning_design/generated/l10n.dart';
 import 'package:online_learning_design/presentation/Onboarding/domin/entities/onboarding_entity.dart';
 import 'package:online_learning_design/presentation/Onboarding/onboardingbloc/onboarding_bloc.dart';
-import 'package:online_learning_design/presentation/auth/login_screen.dart';
-import 'package:online_learning_design/presentation/auth/sign_up_screen.dart';
+import 'package:online_learning_design/presentation/auth/screens/login_screen.dart';
+import 'package:online_learning_design/presentation/auth/screens/sign_up_screen.dart';
 
 class OnboardingButton extends StatelessWidget {
   const OnboardingButton({

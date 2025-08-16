@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_learning_design/core/components/custom_elevated_button.dart';
@@ -7,21 +9,23 @@ import 'package:online_learning_design/presentation/auth/authbloc/auth_bloc.dart
 import 'package:online_learning_design/presentation/auth/authbloc/auth_event.dart';
 import 'package:online_learning_design/presentation/auth/authbloc/auth_state.dart';
 import 'package:online_learning_design/presentation/auth/componante/auth_link.dart';
-import 'package:online_learning_design/presentation/auth/componante/terms_check_box.dart';
-import 'package:online_learning_design/presentation/auth/login_screen.dart';
+import 'package:online_learning_design/presentation/auth/componante/forget_password_link.dart';
+import 'package:online_learning_design/presentation/auth/componante/social_login_button.dart';
+import 'package:online_learning_design/presentation/auth/componante/social_login_divider.dart';
+import 'package:online_learning_design/presentation/auth/screens/sign_up_screen.dart';
+import 'package:online_learning_design/presentation/phone_auth/presentation/screens/phone_auth_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
 
   bool _isPasswordVisible = false;
 
@@ -29,7 +33,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
-    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -47,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    S.of(context).sign_up,
+                    S.of(context).sign_in,
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -55,14 +58,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   SizedBox(height: 4),
-                  Text(
-                    S.of(context).enteryourdetailsbelowfreesignup,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xffB8B8D2),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -83,19 +78,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (state is AuthLoading) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text(S.of(context).processingsignup),
+                            content: Text(S.of(context).processinglogin),
                           ),
                         );
                       } else if (state is AuthSuccess) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text(S.of(context).signupsuccessful),
+                            content: Text(S.of(context).loginsuccessful),
                           ),
                         );
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
+                            builder: (context) => const PhoneAuthScreen(),
                           ),
                         );
                       } else if (state is AuthFailure) {
@@ -152,64 +147,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                           ),
                           const SizedBox(height: 20),
-                          CustomTextFormFields(
-                            title: S.of(context).confirmPassword,
-                            hintText: '••••••••••••',
-                            controller: _confirmPasswordController,
-                            obscureText: !_isPasswordVisible,
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _isPasswordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.grey,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _isPasswordVisible = !_isPasswordVisible;
-                                });
-                              },
-                            ),
-                            validator: (value) {
-                              if (value != _passwordController.text) {
-                                return S.of(context).passwordsdonotmatch;
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 20),
-                          BlocBuilder<AuthBloc, AuthState>(
-                            buildWhen:
-                                (previous, current) =>
-                                    current is AuthTermsState,
-                            builder: (context, state) {
-                              if (state is AuthTermsState) {}
-                              return TermsCheckBox(
-                                onChecked: (value) {
-                                  context.read<AuthBloc>().add(
-                                    const TermsToggled(),
-                                  );
-                                },
-                              );
-                            },
-                          ),
-                          const SizedBox(height: 20),
+                          ForgetPasswordLink(),
                           CustomElevatedButton(
                             width: 327,
                             backgroundColor: Color(0xff3D5CFF),
-
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 context.read<AuthBloc>().add(
-                                  SignUpRequested(
+                                  LoginRequested(
                                     email: _emailController.text,
                                     password: _passwordController.text,
                                   ),
                                 );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => const PhoneAuthScreen(),
+                                  ),
+                                );
+                                log(_passwordController.text);
                               }
                             },
                             label: Text(
-                              S.of(context).creataccount,
+                              S.of(context).sign_in,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -219,17 +180,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           const SizedBox(height: 10),
                           AuthLink(
-                            text: S.of(context).alreadyhaveanaccount,
-                            text1: S.of(context).sign_in,
+                            text: S.of(context).donthaveanaccount,
+                            text1: S.of(context).sign_up,
                             onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const LoginScreen(),
+                                  builder: (context) => const SignUpScreen(),
                                 ),
                               );
                             },
                           ),
+                          const SizedBox(height: 10),
+                          SocialLoginDivider(),
+                          const SizedBox(height: 10),
+                          SocialLoginButton(),
                         ],
                       ),
                     ),
