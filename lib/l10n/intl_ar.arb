@@ -18,7 +18,7 @@
 
    "anunexpectederroroccurred":"!حدث خطأ غير متوقع،",
    "@anunexpectederroroccurred":{},
-     "applyFilter":"Apply Filter",
+     "applyFilter":"تطبيق الفلاتر",
     "@applyFilter":{},
     "alreadyhaveanaccount":"لديك حساب؟",
     "@alreadyhaveanaccount":{},
@@ -37,6 +37,13 @@
     "clear":"مسح",
     "@clear":{},
         "coding":"البرمجة ",
+        "codeSent": "تم إرسال الرمز إلى {phoneNumber}",
+        "@codeSent":{
+            "placeholders": {
+      "phoneNumber": {}
+    }
+  }
+        ,
     "@coding":{},
      "confirmPassword":"تأكيد كلمة المرور",
     "@confirmPassword":{},
@@ -111,8 +118,12 @@
    "@GOODJOB":{},
         "help":"المساعده",
     "@help":{},
-    "hiKristin":"Hi, Kristin",
-    "@hiKristin":{},
+    "hiUser": "مرحباً، {userName}",
+  "@hiUser": {
+    "placeholders": {
+      "userName": {}
+    }
+  },
         "home":"الرئيسية",
     "@home":{},
     
@@ -158,14 +169,13 @@
     "@mathmatics":{},
 
     "@message":{},
-    "meetup":"لقاء",
+    "meetup":"اجتماع",
     "@meetup":{},
         "min":"46 دقيقة",
     "@min":{},
-    "min46":"46min",
+   "min46":"46 دقيقة/60 دقيقة",
     "@min46":{},
-    "min60":"60min",
-    "@min60":{},
+    
         "more":"المزيد",
     "@more":{},
                 "mycard":"بطاقتي",
@@ -215,7 +225,7 @@
    "@Online":{},
     "orloginwith":"أو تسجيل الدخول بواسطة",
     "@orloginwith":{},
-    "packagingDesign":"Packaging Design",
+    "packagingDesign":"تصميم التعبئة",
     "@packagingDesign":{},
        "price":"السعر",
     "@price":{},
@@ -234,6 +244,8 @@
    "@paymentPassword":{},
         "payNow":"ادفع الآن",
    "@payNow":{},
+   "phoneNumber":"رقم الهاتف",
+   "@phoneNumber":{},
    
    
    "pleaseenterthepaymentpassword":"أدخل كلمة مرور الدفع من فضلك",
@@ -242,8 +254,8 @@
     "@pleaseenteryouremail":{},
     "pleaseenteryourpassword":"يرجى إدخال كلمة المرور",
     "@pleaseenteryourpassword":{},
-    "poular":"Poular",
-    "@poular":{},
+    "popular":"المفضل",
+    "@popular":{},
     "productDesignv10":"تصميم المنتج الإصدار 1.0",
     "@productDesignv10":{},
     "processingsignup":"معالجة التسجيل...",

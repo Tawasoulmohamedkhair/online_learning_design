@@ -12,6 +12,7 @@ class PhoneAuthInitial extends PhoneAuthState {}
 class PhoneAuthLoading extends PhoneAuthState {}
 
 class PhoneAuthSuccess extends PhoneAuthState {}
+
 class VerificationSuccess extends PhoneAuthState {}
 
 class PhoneAuthError extends PhoneAuthState {
@@ -20,4 +21,20 @@ class PhoneAuthError extends PhoneAuthState {
 
   @override
   List<Object> get props => [message];
+}
+
+class OtpSent extends PhoneAuthState {}
+
+class PhoneAuthCodeSent extends PhoneAuthState {
+  final String phoneNumber;
+  final String verificationId;
+
+  const PhoneAuthCodeSent({required this.phoneNumber, required this.verificationId});
+}
+
+
+class PhoneAuthVerified extends PhoneAuthState {
+  final String phoneNumber;
+
+  const PhoneAuthVerified(this.phoneNumber);
 }

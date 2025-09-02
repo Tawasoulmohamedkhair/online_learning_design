@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_event.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:online_learning_design/generated/l10n.dart';
 
@@ -20,7 +21,7 @@ class LocalizationBloc extends Bloc<LocalizationEvent, LocalizationState> {
     final prefs = await SharedPreferences.getInstance();
     final String? languageCode = prefs.getString(_localeKey);
     if (languageCode != null) {
-      add(ChangeLocale(Locale(languageCode)));
+      add(ChangeLocale(locale: Locale(languageCode)));
     }
   }
 
@@ -34,16 +35,8 @@ class LocalizationBloc extends Bloc<LocalizationEvent, LocalizationState> {
   }
 }
 
-class ChangeLocale extends LocalizationEvent {
-  final Locale locale;
-  const ChangeLocale(this.locale);
-}
 
-abstract class LocalizationEvent {
-  const LocalizationEvent();
-}
 
-class LocalizationState {
-  final Locale locale;
-  const LocalizationState(this.locale);
-}
+
+
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormFields extends StatelessWidget {
- const  CustomTextFormFields({
+  const CustomTextFormFields({
     super.key,
     required this.title,
     this.validator,
@@ -11,6 +11,7 @@ class CustomTextFormFields extends StatelessWidget {
     required this.controller,
     this.suffixIcon,
     this.obscureText = false,
+    this.keyboardType,
   });
   final String title;
   final TextEditingController controller;
@@ -19,6 +20,7 @@ class CustomTextFormFields extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
   final bool obscureText;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class CustomTextFormFields extends StatelessWidget {
             fillColor: Color(0xFFFFFFFF),
             suffixIcon: suffixIcon,
           ),
-          keyboardType: TextInputType.emailAddress,
+          keyboardType: keyboardType,
           maxLines: obscureText ? 1 : null,
           obscureText: obscureText,
         ),

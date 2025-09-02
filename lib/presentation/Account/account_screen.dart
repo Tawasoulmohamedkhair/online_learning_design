@@ -4,8 +4,9 @@ import 'package:online_learning_design/generated/l10n.dart';
 import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_bloc.dart';
 import 'package:online_learning_design/presentation/Account/components/image_account.dart';
 import 'package:online_learning_design/presentation/Account/components/list_tile_widget.dart';
+import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_event.dart';
 import 'package:online_learning_design/presentation/Language/language_screen.dart';
-import 'package:online_learning_design/presentation/Onboarding/onboarding_screen.dart';
+import 'package:online_learning_design/presentation/Onboarding/presentation/screen/onboarding_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -50,7 +51,7 @@ class AccountScreen extends StatelessWidget {
                       );
                       if (newLocale != null && newLocale is Locale) {
                         context.read<LocalizationBloc>().add(
-                          ChangeLocale(newLocale),
+                          ChangeLocale(locale: newLocale),
                         );
                       }
                     },

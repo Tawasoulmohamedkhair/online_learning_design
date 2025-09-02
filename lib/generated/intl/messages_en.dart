@@ -20,6 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(phoneNumber) => "Code is sent to ${phoneNumber}";
+
+  static String m1(userName) => "Hi, ${userName}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Completed": MessageLookupByLibrary.simpleMessage("Completed"),
@@ -70,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "clear": MessageLookupByLibrary.simpleMessage("Clear"),
     "clockingin": MessageLookupByLibrary.simpleMessage("Clocking in!"),
+    "codeSent": m0,
     "coding": MessageLookupByLibrary.simpleMessage("Coding"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "congratulationskeepupthegoodwork": MessageLookupByLibrary.simpleMessage(
@@ -138,7 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Google login clicked!",
     ),
     "help": MessageLookupByLibrary.simpleMessage("Help"),
-    "hiKristin": MessageLookupByLibrary.simpleMessage("Hi, Kristin"),
+    "hiUser": m1,
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "hours": MessageLookupByLibrary.simpleMessage("16 hours"),
     "hours14": MessageLookupByLibrary.simpleMessage("14 hours"),
@@ -158,8 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "meetup": MessageLookupByLibrary.simpleMessage("Meetup"),
     "message": MessageLookupByLibrary.simpleMessage("Messages"),
     "min": MessageLookupByLibrary.simpleMessage("46min"),
-    "min46": MessageLookupByLibrary.simpleMessage("46min"),
-    "min60": MessageLookupByLibrary.simpleMessage("60min"),
+    "min46": MessageLookupByLibrary.simpleMessage("46min/60min"),
     "more": MessageLookupByLibrary.simpleMessage("more"),
     "music": MessageLookupByLibrary.simpleMessage("Music"),
     "mycard": MessageLookupByLibrary.simpleMessage("My card"),
@@ -191,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "payNow": MessageLookupByLibrary.simpleMessage("Pay Now"),
     "paymentPassword": MessageLookupByLibrary.simpleMessage("Payment Password"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("phoneNumber"),
     "pleaseenterthepaymentpassword": MessageLookupByLibrary.simpleMessage(
       "Please enter the payment password",
     ),
@@ -200,7 +205,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseenteryourpassword": MessageLookupByLibrary.simpleMessage(
       "Please enter your password",
     ),
-    "poular": MessageLookupByLibrary.simpleMessage("Poular"),
+    "popular": MessageLookupByLibrary.simpleMessage("popular"),
     "price": MessageLookupByLibrary.simpleMessage("Price"),
     "processinglogin": MessageLookupByLibrary.simpleMessage(
       "Processing Login...",

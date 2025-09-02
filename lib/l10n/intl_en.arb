@@ -35,6 +35,17 @@
     "@clear":{},
    "clockingin":"Clocking in!",
    "@clockingin":{},
+   "codeSent": "Code is sent to {phoneNumber}",
+   "@codeSent":{
+    "description": "Message shown when verification code is sent to phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1 9876543210"
+      }
+    }
+  },
+   
    "coding":"Coding",
     "@coding":{},
     "confirmPassword":"Confirm Password",
@@ -106,8 +117,16 @@
    "@googleloginclicked":{}, 
      "help":"Help",
     "@help":{},
-    "hiKristin":"Hi, Kristin",
-    "@hiKristin":{},
+    "hiUser": "Hi, {userName}",
+  "@hiUser": {
+    "description": "Greeting message to the user",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "Kristin"
+      }
+    }
+  },
     "home":"Home",
     "@home":{},
     "hrs":"hrs",
@@ -158,10 +177,8 @@
     "@mycourses":{},
     "min":"46min",
     "@min":{},
-    "min46":"46min",
+    "min46":"46min/60min",
     "@min46":{},
-    "min60":"60min",
-    "@min60":{},
      "more":"more",
     "@more":{},
     
@@ -208,14 +225,16 @@
    "@paymentPassword":{},
    "payNow":"Pay Now",
    "@payNow":{},
+   "phoneNumber":"phoneNumber",
+   "@phoneNumber":{},
    "pleaseenterthepaymentpassword":"Please enter the payment password",
    "@pleaseenterthepaymentpassword":{},
      "pleaseenteryouremail":"Please enter your email",
     "@pleaseenteryouremail":{},
      "pleaseenteryourpassword":"Please enter your password",
     "@pleaseenteryourpassword":{},
-    "poular":"Poular",
-    "@poular":{},
+    "popular":"popular",
+    "@popular":{},
     "price":"Price",
     "@price":{},
      "processingsignup":"Processing Sign Up...",

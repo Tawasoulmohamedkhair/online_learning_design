@@ -179,6 +179,16 @@ class S {
     return Intl.message('Clocking in!', name: 'clockingin', desc: '', args: []);
   }
 
+  /// `Code is sent to {phoneNumber}`
+  String codeSent(String phoneNumber) {
+    return Intl.message(
+      'Code is sent to $phoneNumber',
+      name: 'codeSent',
+      desc: 'Message shown when verification code is sent to phone number',
+      args: [phoneNumber],
+    );
+  }
+
   /// `Coding`
   String get coding {
     return Intl.message('Coding', name: 'coding', desc: '', args: []);
@@ -464,9 +474,14 @@ class S {
     return Intl.message('Help', name: 'help', desc: '', args: []);
   }
 
-  /// `Hi, Kristin`
-  String get hiKristin {
-    return Intl.message('Hi, Kristin', name: 'hiKristin', desc: '', args: []);
+  /// `Hi, {userName}`
+  String hiUser(String userName) {
+    return Intl.message(
+      'Hi, $userName',
+      name: 'hiUser',
+      desc: 'Greeting message to the user',
+      args: [userName],
+    );
   }
 
   /// `Home`
@@ -624,14 +639,9 @@ class S {
     return Intl.message('46min', name: 'min', desc: '', args: []);
   }
 
-  /// `46min`
+  /// `46min/60min`
   String get min46 {
-    return Intl.message('46min', name: 'min46', desc: '', args: []);
-  }
-
-  /// `60min`
-  String get min60 {
-    return Intl.message('60min', name: 'min60', desc: '', args: []);
+    return Intl.message('46min/60min', name: 'min46', desc: '', args: []);
   }
 
   /// `more`
@@ -794,6 +804,11 @@ class S {
     return Intl.message('Pay Now', name: 'payNow', desc: '', args: []);
   }
 
+  /// `phoneNumber`
+  String get phoneNumber {
+    return Intl.message('phoneNumber', name: 'phoneNumber', desc: '', args: []);
+  }
+
   /// `Please enter the payment password`
   String get pleaseenterthepaymentpassword {
     return Intl.message(
@@ -824,9 +839,9 @@ class S {
     );
   }
 
-  /// `Poular`
-  String get poular {
-    return Intl.message('Poular', name: 'poular', desc: '', args: []);
+  /// `popular`
+  String get popular {
+    return Intl.message('popular', name: 'popular', desc: '', args: []);
   }
 
   /// `Price`

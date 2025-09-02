@@ -1,19 +1,41 @@
-// Example using a package like Dio or http
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
+
 abstract class PhoneAuthRemoteDataSource {
-  Future<void> submitPhoneNumber(String phoneNumber);
+  Future<String> submitPhoneNumber(String phoneNumber);
+  Future<void> verifyOtp(String phoneNumber, String otpCode);
 }
 
 class PhoneAuthRemoteDataSourceImpl implements PhoneAuthRemoteDataSource {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
-  Future<void> submitPhoneNumber(String phoneNumber) async {
-    // Here you would call your API
-    // For example:
-    // final response = await http.post(...);
-    // if (response.statusCode != 200) {
-    //   throw ServerException();
-    // }
-    // For now, a simple delay to simulate API call
-    await Future.delayed(Duration(seconds: 2));
-    print('Phone number submitted: $phoneNumber');
+  Future<String> submitPhoneNumber(String phoneNumber) async {
+    final completer = Completer<String>();
+
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      timeout: const Duration(seconds: 60),
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (FirebaseAuthException e) {
+        completer.completeError(e);
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        completer.complete(verificationId);
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
+
+    return completer.future;
+  }
+
+  @override
+  Future<void> verifyOtp(String phoneNumber, String otpCode) async {
+    final credential = PhoneAuthProvider.credential(
+      verificationId: phoneNumber,
+      smsCode: otpCode,
+    );
+    await _auth.signInWithCredential(credential);
   }
 }

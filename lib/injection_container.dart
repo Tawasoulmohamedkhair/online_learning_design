@@ -1,8 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:online_learning_design/presentation/Course/data/DataSource/course_remote_data_source.dart';
+import 'package:online_learning_design/presentation/Course/data/Repository/course_repository_impl.dart';
+import 'package:online_learning_design/presentation/Course/domin/Repository/course_repository.dart';
 import 'package:online_learning_design/presentation/Onboarding/data/repositories/onboarding_repository_impl.dart';
 import 'package:online_learning_design/presentation/Onboarding/domin/repositories/onboarding_repository.dart';
 import 'package:online_learning_design/presentation/Onboarding/domin/usecases/get_onboarding_pages.dart';
-
 
 final sl = GetIt.instance;
 
@@ -26,4 +29,11 @@ Future<void> init({
   );
 
   sl.registerLazySingleton(() => GetOnboardingPages(sl()));
+  sl.registerLazySingleton<CourseRemoteDataSource>(
+    () => CourseRemoteDataSourceImpl(Dio()),
+  );
+
+  sl.registerLazySingleton<CourseRepository>(
+    () => CourseRepositoryImpl(remoteDataSource: sl()),
+  );
 }

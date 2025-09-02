@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:online_learning_design/generated/l10n.dart';
 import 'package:online_learning_design/presentation/phone_auth/presentation/PhoneAuthBloc/phone_auth_bloc_bloc.dart';
 import 'package:online_learning_design/presentation/phone_auth/presentation/PhoneAuthBloc/phone_auth_bloc_event.dart';
 import 'package:online_learning_design/presentation/phone_auth/presentation/PhoneAuthBloc/phone_auth_bloc_state.dart';
-import 'package:online_learning_design/presentation/phone_auth/presentation/componante/build_numpad.dart';
 
 class BuildMainContent extends StatefulWidget {
   const BuildMainContent({super.key});
@@ -14,14 +14,21 @@ class BuildMainContent extends StatefulWidget {
 }
 
 class _BuildMainContentState extends State<BuildMainContent> {
+  final TextEditingController phoneController = TextEditingController();
+  String phoneCompleteNumber = '';
+
+  @override
+  void dispose() {
+    phoneController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    PhoneAuthState state = context.watch<PhoneAuthBloc>().state;
-
     return SafeArea(
       child: Container(
-        width: 375,
-        height: 540,
+        width: double.infinity,
+        //height: 540,
         padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -31,44 +38,58 @@ class _BuildMainContentState extends State<BuildMainContent> {
           ),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               S.of(context).enterYourPhoneNumber,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
-
+            const SizedBox(height: 20),
             Row(
               children: [
-                const Text(
-                  '+63 283 835 2999',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed:
-                      state is! PhoneAuthLoading ? _submitPhoneNumber : null,
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                Expanded(
+                  child: IntlPhoneField(
+                    controller: phoneController,
+
+                    decoration: InputDecoration(
+                      labelText: 'Phone Number',
+                      border: OutlineInputBorder(borderSide: BorderSide()),
                     ),
+                    initialCountryCode: 'EN',
+                    onChanged: (phone) {
+                      phoneCompleteNumber = phone.completeNumber;
+                    },
                   ),
-                  child: Text(S.of(context).continues),
+                ),
+            
+              const SizedBox(width: 10),
+              BlocBuilder<PhoneAuthBloc, PhoneAuthState>(
+                  builder: (context, state) {
+                    return ElevatedButton(
+                      onPressed:
+                          state is! PhoneAuthLoading
+                              ? () => context.read<PhoneAuthBloc>().add(
+                                PhoneNumberSubmitted(phoneCompleteNumber),
+                              )
+                              : null,
+
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child:
+                          state is PhoneAuthLoading
+                              ? const CircularProgressIndicator()
+                              : Text(S.of(context).continues),
+                    );
+                  },
                 ),
               ],
             ),
-            BuildNumpad(),
           ],
         ),
       ),
     );
-  }
-
-  void _submitPhoneNumber() {
-    final phoneNumberController = TextEditingController();
-
-    final phoneNumber = phoneNumberController.text;
-    BlocProvider.of<PhoneAuthBloc>(
-      context,
-    ).add(PhoneNumberSubmitted(phoneNumber));
   }
 }

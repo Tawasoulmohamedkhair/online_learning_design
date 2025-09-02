@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_learning_design/generated/l10n.dart';
 import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_bloc.dart';
+import 'package:online_learning_design/presentation/Language/Localizationbloc/localization_event.dart';
 import 'package:online_learning_design/presentation/Language/data/language_model.dart';
 
 class LanguageScreen extends StatelessWidget {
@@ -24,6 +25,7 @@ class LanguageScreen extends StatelessWidget {
               var item = languagesModel[index];
               return RadioListTile<String>(
                 value: item.languageCode,
+                
                 groupValue: groupValue,
                 title: Text(
                   item.languageName,
@@ -34,7 +36,7 @@ class LanguageScreen extends StatelessWidget {
                   if (value != null) {
                     BlocProvider.of<LocalizationBloc>(
                       context,
-                    ).add(ChangeLocale(Locale(value)));
+                    ).add(ChangeLocale(locale: Locale(value)));
                     Navigator.of(context).pop();
                   }
                 },

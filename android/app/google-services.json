@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "493946999172",
+    "project_id": "onlinelearningdesign-5dcb4",
+    "storage_bucket": "onlinelearningdesign-5dcb4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493946999172:android:fc2b56d0b6aa87f6754dd1",
+        "android_client_info": {
+          "package_name": "com.learning.onlinelearningdesign"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd_S0x7W_vjcXThT-70LVDPV9dm8brbko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_learning_design/core/components/custom_elevated_button.dart';
 import 'package:online_learning_design/generated/l10n.dart';
+import 'package:online_learning_design/presentation/navigation/presentation/Screen/main_screen.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key});
@@ -37,7 +38,9 @@ class SuccessScreen extends StatelessWidget {
 
               CustomElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const MainScreen()),
+                  );
                 },
                 width: double.infinity,
                 backgroundColor: Color(0xff3D5CFF),

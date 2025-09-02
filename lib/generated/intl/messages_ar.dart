@@ -20,6 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(phoneNumber) => "تم إرسال الرمز إلى ${phoneNumber}";
+
+  static String m1(userName) => "مرحباً، ${userName}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Completed": MessageLookupByLibrary.simpleMessage("مكتمل"),
@@ -45,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "anunexpectederroroccurred": MessageLookupByLibrary.simpleMessage(
       "!حدث خطأ غير متوقع،",
     ),
-    "applyFilter": MessageLookupByLibrary.simpleMessage("Apply Filter"),
+    "applyFilter": MessageLookupByLibrary.simpleMessage("تطبيق الفلاتر"),
     "balance": MessageLookupByLibrary.simpleMessage("الرصيد"),
     "bertPullman": MessageLookupByLibrary.simpleMessage("Bert Pullman"),
     "buyNow": MessageLookupByLibrary.simpleMessage("اشترِ الآن"),
@@ -60,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "choiceyourcourse": MessageLookupByLibrary.simpleMessage("اختر دورتك"),
     "clear": MessageLookupByLibrary.simpleMessage("مسح"),
     "clockingin": MessageLookupByLibrary.simpleMessage("!تسجيل الحضور"),
+    "codeSent": m0,
     "coding": MessageLookupByLibrary.simpleMessage("البرمجة "),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
@@ -124,7 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ"),
     "help": MessageLookupByLibrary.simpleMessage("المساعده"),
-    "hiKristin": MessageLookupByLibrary.simpleMessage("Hi, Kristin"),
+    "hiUser": m1,
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "hours": MessageLookupByLibrary.simpleMessage("16 ساعة"),
     "hours14": MessageLookupByLibrary.simpleMessage("14 ساعة"),
@@ -139,11 +144,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم تسجيل الدخول بنجاح!",
     ),
     "mathmatics": MessageLookupByLibrary.simpleMessage("الرياضيات"),
-    "meetup": MessageLookupByLibrary.simpleMessage("لقاء"),
+    "meetup": MessageLookupByLibrary.simpleMessage("اجتماع"),
     "message": MessageLookupByLibrary.simpleMessage("الرسائل"),
     "min": MessageLookupByLibrary.simpleMessage("46 دقيقة"),
-    "min46": MessageLookupByLibrary.simpleMessage("46min"),
-    "min60": MessageLookupByLibrary.simpleMessage("60min"),
+    "min46": MessageLookupByLibrary.simpleMessage("46 دقيقة/60 دقيقة"),
     "more": MessageLookupByLibrary.simpleMessage("المزيد"),
     "music": MessageLookupByLibrary.simpleMessage("الموسيقى"),
     "mycard": MessageLookupByLibrary.simpleMessage("بطاقتي"),
@@ -169,7 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "orloginwith": MessageLookupByLibrary.simpleMessage(
       "أو تسجيل الدخول بواسطة",
     ),
-    "packagingDesign": MessageLookupByLibrary.simpleMessage("Packaging Design"),
+    "packagingDesign": MessageLookupByLibrary.simpleMessage("تصميم التعبئة"),
     "painting": MessageLookupByLibrary.simpleMessage("الرسم"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordsdonotmatch": MessageLookupByLibrary.simpleMessage(
@@ -177,6 +181,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "payNow": MessageLookupByLibrary.simpleMessage("ادفع الآن"),
     "paymentPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور الدفع"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "pleaseenterthepaymentpassword": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة مرور الدفع من فضلك",
     ),
@@ -186,7 +191,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseenteryourpassword": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال كلمة المرور",
     ),
-    "poular": MessageLookupByLibrary.simpleMessage("Poular"),
+    "popular": MessageLookupByLibrary.simpleMessage("المفضل"),
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
     "processingsignup": MessageLookupByLibrary.simpleMessage(
       "معالجة التسجيل...",

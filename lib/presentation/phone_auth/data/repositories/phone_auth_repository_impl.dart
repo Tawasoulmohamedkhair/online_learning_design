@@ -5,7 +5,6 @@ import 'package:online_learning_design/core/utils/network_info.dart';
 import 'package:online_learning_design/presentation/phone_auth/data/datasources/remote_data_source.dart';
 import 'package:online_learning_design/presentation/phone_auth/domin/repositories/phone_auth_repository.dart';
 
-
 class PhoneAuthRepositoryImpl implements PhoneAuthRepository {
   final PhoneAuthRemoteDataSource remoteDataSource;
   final NetworkInfo networkInfo;
@@ -16,10 +15,29 @@ class PhoneAuthRepositoryImpl implements PhoneAuthRepository {
   });
 
   @override
-  Future<Either<Failure, void>> submitPhoneNumber(String phoneNumber) async {
+  Future<Either<Failure, String>> submitPhoneNumber(String phoneNumber) async {
     if (await networkInfo.isConnected) {
       try {
-        await remoteDataSource.submitPhoneNumber(phoneNumber);
+        final verificationId = await remoteDataSource.submitPhoneNumber(
+          phoneNumber,
+        );
+        return Right(verificationId); 
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(NetworkFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> verifyOtp(
+    String phoneNumber,
+    String otpCode,
+  ) async {
+    if (await networkInfo.isConnected) {
+      try {
+        await remoteDataSource.verifyOtp(phoneNumber, otpCode);
         return Right(null);
       } on ServerException {
         return Left(ServerFailure());
